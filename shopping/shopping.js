@@ -1,23 +1,36 @@
+class ShoppingCart{
 
+    constructor(){
+        this.bin = document.getElementById("bin");
+        this.product = document.getElementsByClassName("item-container")[0]
+        this.itemQuantity = document.getElementById("item-quantity")
+        this.totalPrice = document.getElementById("total-price");
+        this.itemPrice = document.getElementById("item-price");
 
+    }
 
-const removeItem = document.getElementById("bin");
-const product = document.getElementsByClassName("item-container")[0]
-const itemQuantity = document.getElementById("item-quantity")
-const totalPrice = document.getElementById("total-price");
-const itemPrice = document.getElementById("item-price");
+    updateTotal(){
+        console.log("fd", this.itemQuantity) 
+        const total = parseFloat(this.itemPrice.innerText) * this.itemQuantity.value;
+        this.totalPrice.innerText = "£" + total;
+        console.log(total)
+    }
 
+    removeItem(){
+        this.product.style.visibility = "hidden"
+    }
 
-let total;
+}
+const cart = new ShoppingCart();
 
-itemQuantity.addEventListener("click", ()=>{
-    total = parseFloat(itemPrice.innerText) * itemQuantity.value;
-    totalPrice.innerText = "£" + total;
-    console.log(total)
+cart.itemQuantity.addEventListener("click", ()=>{
+    cart.updateTotal()
 })
 
-removeItem.addEventListener("click", ()=>{
 
-    product.style.visibility = "hidden";
-    total = 0;
+cart.bin.addEventListener("click", ()=>{
+    cart.removeItem();
 })
+
+
+
