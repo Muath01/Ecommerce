@@ -4,10 +4,12 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        <link rel="stylesheet" href="./style/style.css">
-        <link rel="stylesheet" href="./style/shopping.css">
+        <!-- <link rel="stylesheet" href="../style/style.css"> -->
+        <!-- <link rel="stylesheet" href="./style/shopping.css"> -->
+        <link rel="stylesheet" href="../style/style.css">
+        <link rel="stylesheet" href="../shopping/style/shopping.css">
+        
         <title>Shoppping Cart</title>
     </head>
 <body>
@@ -19,7 +21,7 @@
         </div>
         <div id="links">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a class="button" href="shopping.html">Learn More</a></li>
@@ -30,37 +32,41 @@
     <div class="shopping-container">
         <div class="shopping-total">
             <span>SubTotal</span>
-            <span>£££</span>
+            <span id="total-price"></span>
             <button>Buy Now</button>
         </div>
 
-        <div class="item-contianer">
+        <div class="item-container">
 
         <div class="cart-item cart-item-1">
                 <div class="cart-img-container">
-                    <img src="./img/yellow-watch.jpg" class="cart-product-img">
+                    <img src="../img/yellow-watch.jpg" class="cart-product-img">
                 </div>
                 
-            <div id="item-price">
-                <span>
-                  Price: £7.99
+            <div id="item-actions">
+                <span id="item-text">
+                  Price: £<span id="item-price">7.99</span>
                 </span>
-            </div>
-        </div>
 
-        <div class="cart-item cart-item-2">
-                <div class="cart-img-container">
-                    <img src="./img/yellow-watch.jpg" class="cart-product-img">
+                <div class="bin-select">
+                    <span id="bin" class="material-symbols-outlined">
+                        delete
+                    </span>
+                    <select id="item-quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
                 </div>
-                
-            <div id="item-price">
-                <span>
-                  Price: £7.99
-                </span>
             </div>
         </div>
     </div>
 </div>
     
+
+    <script src="shopping.js"></script>
 </body>
 </html>
