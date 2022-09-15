@@ -7,6 +7,8 @@ for(const cart of shoppingCart){
         console.log("cart")
     })
 }
+
+
 for(const buy of shoppingBuy){
     buy.addEventListener("click", ()=>{
         console.log("buy")
