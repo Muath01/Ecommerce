@@ -23,8 +23,8 @@ class ShoppingCart{
 }
 const cart = new ShoppingCart();
 
-cart.itemQuantity.addEventListener("click", ()=>{
-    cart.updateTotal()
+cart.itemQuantity.addEventListener("click", ()=>{ 
+    cart.updateTotal() // Update the total price under subTotal
 })
 
 
