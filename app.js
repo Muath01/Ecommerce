@@ -131,7 +131,7 @@ for(const bin of cart.bin){
 const shoppingCart = document.querySelectorAll(".put-in-cart-action span")
 const shoppingBuy = document.querySelectorAll(".buy-action span")
 const shoppingShare = document.querySelectorAll(".share-action span")
-const shoppingButton = document.querySelector("#shopping")
+const shoppingButton = document.querySelector(".shopping")
 
 
 shoppingButton.addEventListener("click", ()=>{
