@@ -55,6 +55,10 @@ body {
           justify-content: center;
 }
 
+.shopping-container .item-container .cart-item #item-actions li {
+  list-style: none;
+}
+
 .shopping-container .item-container .cart-item #item-actions .bin-select {
   display: -webkit-box;
   display: -ms-flexbox;
