@@ -33,10 +33,10 @@ class ShoppingCart{
         
         const targetPrice = e.target.parentNode.parentNode.querySelector(".item-price") // Go up the node list to get the clicked item price, the e represent the click event. 
         
-        targetPrice.innerText = quantiy * parseFloat(targetPrice.value); // The price value stays the same, but inner text changes. 
+        targetPrice.innerText = quantiy * parseFloat(targetPrice.value); // The price value stays the same, but inner text changes.
 
-        this.setTotal(); //Call this function to reset the subTotal
-        
+        this.setTotal(); //Call this function to reset the subTotal.
+
     }
 
     removeItem(){
