@@ -1,8 +1,8 @@
 class ShoppingCart{
 
     constructor(){
-        this.bin = document.getElementById("bin");
-        this.product = document.getElementsByClassName("item-container")[0]
+        this.bin = document.getElementsByClassName("bin");
+        this.product = document.getElementsByClassName("cart-item")
         this.itemQuantity = document.getElementsByClassName("item-quantity")
         this.subTotal = document.getElementById("total-price");
         this.itemPrice = document.getElementsByClassName("item-price");
@@ -35,12 +35,17 @@ class ShoppingCart{
         
         targetPrice.innerText = quantiy * parseFloat(targetPrice.value); // The price value stays the same, but inner text changes.
 
-        this.setTotal(); //Call this function to reset the subTotal.
+        this.setTotal(); 
 
     }
 
-    removeItem(){
-        this.product.style.visibility = "hidden"
+    removeItem(e){
+        console.log("here")
+        console.log(e.target.parentNode.parentNode.parentNode)
+        e.target.parentNode.parentNode.parentNode.remove();
+
+        this.setTotal(); 
+
     }
 
 }
@@ -60,9 +65,12 @@ for(const item of cart.itemQuantity) {
 }; 
 
 
-cart.bin.addEventListener("click", ()=>{ // Remove an item when the bin icon is clicked 
-    cart.removeItem(); 
-})
+for(const bin of cart.bin){
+    bin.addEventListener("click", (e)=>{ // Remove an item when the bin icon is clicked 
+        cart.removeItem(e); 
+    }
+)}
+
 
 
 

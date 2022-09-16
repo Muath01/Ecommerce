@@ -59,6 +59,10 @@ body {
   list-style: none;
 }
 
+.shopping-container .item-container .cart-item #item-actions .bin {
+  cursor: pointer;
+}
+
 .shopping-container .item-container .cart-item #item-actions .bin-select {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -47,13 +47,8 @@ body{
             list-style: none;
         }
         
-        #bin{
-            // position: relative;
-            // // top: 1.2em;
-            // cursor: pointer;
-            // display: flex;
-            // justify-content: center;
-            // margin-left: 2.5em;
+        .bin{
+            cursor: pointer;
         }
 
         .bin-select{
