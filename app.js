@@ -91,14 +91,8 @@ class ShoppingCart{
         `
         console.log(this.priceArray)
         itemContainer.appendChild(cartItem)
-        itemContainer.appendChild(cartItem.cloneNode(true))
         this.setTotal(); 
-        // itemContainer.appendChild(cartItem.cloneNode(true))
-        // itemContainer.appendChild(cartItem.cloneNode(true))
-        // itemContainer.appendChild(cartItem.cloneNode(true))
-        // itemContainer.appendChild(cartItem.cloneNode(true))
-        // itemContainer.appendChild(cartItem.cloneNode(true))
-        // itemContainer.appendChild(cartItem.cloneNode(true))
+
 
 
 
@@ -106,37 +100,8 @@ class ShoppingCart{
 
 }
 
-/*
-        <div class="cart-item cart-item-1">
-                <div class="cart-img-container">
-                    <img src="../img/yellow-watch.jpg" class="cart-product-img">
-                </div>
-                
-            <div id="item-actions">
-                <span id="item-text">
-                  Price: £<option class="item-price" value="7.99">7.99</option>
-                </span>
-
-                <div class="bin-select">
-                    <span class="bin material-symbols-outlined">
-                        delete
-                    </span>
-                    <select class="item-quantity">
-                        <option selected value="">Select Qauntity</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-*/
 const cart = new ShoppingCart();
-
 cart.setTotal();
-cart.addItemToCart();
 
 console.log(cart.subTotal.innerText)
 
@@ -168,6 +133,7 @@ const shoppingBuy = document.querySelectorAll(".buy-action span")
 const shoppingShare = document.querySelectorAll(".share-action span")
 const shoppingButton = document.querySelector("#shopping")
 
+
 shoppingButton.addEventListener("click", ()=>{
 
     const shoppingContainer = document.querySelector(".shopping-container")
@@ -183,9 +149,9 @@ shoppingButton.addEventListener("click", ()=>{
         shoppingContainer.style.display = "none";
     }
 })
-for(const cart of shoppingCart){
-    cart.addEventListener("click", ()=>{
-        console.log("cart")
+for(const cartbtn of shoppingCart){
+    cartbtn.addEventListener("click", ()=>{
+        cart.addItemToCart();
     })
 }
 
