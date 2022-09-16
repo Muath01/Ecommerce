@@ -4,7 +4,7 @@ class ShoppingCart{
         this.bin = document.getElementById("bin");
         this.product = document.getElementsByClassName("item-container")[0]
         this.itemQuantity = document.getElementsByClassName("item-quantity")
-        this.totalPrice = document.getElementById("total-price");
+        this.subTotal = document.getElementById("total-price");
         this.itemPrice = document.getElementsByClassName("item-price");
         this.priceArray = [];// will hold the prices of each item. 
         this.total;
@@ -13,7 +13,7 @@ class ShoppingCart{
 
     setTotal(){ // sets the subtotal of the cart by looping over all of them items. 
 
-        this.priceArray = [];
+        this.priceArray = []; // Clear the array every time this function is called so the subTotal is recalculated 
 
         for(const price of cart.itemPrice){
 
@@ -24,23 +24,18 @@ class ShoppingCart{
             return total + item;
         }, 0) 
 
-        this.totalPrice.innerText = "£" + Math.round(totalValue * 100) / 100;
+        this.subTotal.innerText = "£" + Math.round(totalValue * 100) / 100;
 
         
     }
 
     updateTotal(quantiy,e){
         
-        // console.log("here",e)
-
+        const targetPrice = e.target.parentNode.parentNode.querySelector(".item-price") // Go up the node list to get the clicked item price, the e represent the click event. 
         
-        const targetPrice = e.target.parentNode.parentNode.querySelector(".item-price")
-        
-        console.log("Q:", quantiy)
-        console.log("Price: ", targetPrice.value)
-        targetPrice.innerText = quantiy * parseFloat(targetPrice.value);
+        targetPrice.innerText = quantiy * parseFloat(targetPrice.value); // The price value stays the same, but inner text changes. 
 
-        this.setTotal();
+        this.setTotal(); //Call this function to reset the subTotal
         
     }
 
