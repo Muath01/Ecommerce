@@ -6,8 +6,10 @@ class ShoppingCart{
         this.itemQuantity = document.getElementsByClassName("item-quantity")
         this.subTotal = document.getElementById("total-price");
         this.itemPrice = document.getElementsByClassName("item-price");
+        this.test = document.getElementById("subtotal")
         this.priceArray = [];// will hold the prices of each item. 
         this.total;
+        this.cartItem = 0;
  
     }
 
@@ -48,12 +50,95 @@ class ShoppingCart{
 
     }
 
+    addItemToCart(){
+        console.log("hello");
+        const cartItem = document.createElement("div")
+
+
+        const itemContainer = document.querySelector(".item-container");
+        
+        
+        cartItem.classList.add("cart-item", "cart-item-3");
+
+        cartItem.innerHTML= `
+        <div class="cart-item cart-item-1">
+            <div class="cart-img-container">
+                <img src="../img/yellow-watch.jpg" class="cart-product-img">
+            </div>
+        
+        <div id="item-actions">
+            <span id="item-text">
+            Price: £<option class="item-price" value="7.99">7.99</option>
+            </span>
+
+        <div class="bin-select">
+            <span class="bin material-symbols-outlined">
+                delete
+            </span>
+
+        <select class="item-quantity">
+                <option selected value="">Select Qauntity</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+    </div>
+</div>
+        
+        `
+        console.log(this.priceArray)
+        itemContainer.appendChild(cartItem)
+        itemContainer.appendChild(cartItem.cloneNode(true))
+        this.setTotal(); 
+        // itemContainer.appendChild(cartItem.cloneNode(true))
+        // itemContainer.appendChild(cartItem.cloneNode(true))
+        // itemContainer.appendChild(cartItem.cloneNode(true))
+        // itemContainer.appendChild(cartItem.cloneNode(true))
+        // itemContainer.appendChild(cartItem.cloneNode(true))
+        // itemContainer.appendChild(cartItem.cloneNode(true))
+
+
+
+    }
+
 }
 
+/*
+        <div class="cart-item cart-item-1">
+                <div class="cart-img-container">
+                    <img src="../img/yellow-watch.jpg" class="cart-product-img">
+                </div>
+                
+            <div id="item-actions">
+                <span id="item-text">
+                  Price: £<option class="item-price" value="7.99">7.99</option>
+                </span>
+
+                <div class="bin-select">
+                    <span class="bin material-symbols-outlined">
+                        delete
+                    </span>
+                    <select class="item-quantity">
+                        <option selected value="">Select Qauntity</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+*/
 const cart = new ShoppingCart();
 
-cart.setTotal()
+cart.setTotal();
+cart.addItemToCart();
 
+console.log(cart.subTotal.innerText)
 
 
 
