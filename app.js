@@ -61,7 +61,6 @@ class ShoppingCart{
         cartItem.classList.add("cart-item", "cart-item-3");
 
         cartItem.innerHTML= `
-        <div class="cart-item cart-item-1">
             <div class="cart-img-container">
                 <img src="../img/yellow-watch.jpg" class="cart-product-img">
             </div>
@@ -86,7 +85,6 @@ class ShoppingCart{
             </select>
         </div>
     </div>
-</div>
         
         `
         console.log(this.priceArray)
