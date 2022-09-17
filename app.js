@@ -42,8 +42,6 @@ class ShoppingCart{
     }
 
     removeItem(e){
-        console.log("here")
-        console.log(e.target.parentNode.parentNode.parentNode)
         e.target.parentNode.parentNode.parentNode.remove();
 
         this.setTotal(); 
@@ -51,17 +49,13 @@ class ShoppingCart{
     }
 
     addItemToCart(){
-        console.log("hello");
         const cartItem = document.createElement("div")
-
 
         const itemContainer = document.querySelector(".item-container");
         
-        
-        cartItem.classList.add("cart-item", "cart-item-3");
+        cartItem.classList.add("cart-item", "cart-item-2");
 
         cartItem.innerHTML= `
-        <div class="cart-item cart-item-1">
             <div class="cart-img-container">
                 <img src="../img/yellow-watch.jpg" class="cart-product-img">
             </div>
@@ -86,52 +80,82 @@ class ShoppingCart{
             </select>
         </div>
     </div>
-</div>
-        
         `
         console.log(this.priceArray)
-        itemContainer.appendChild(cartItem)
+        itemContainer.appendChild(cartItem.cloneNode(true))
         this.setTotal(); 
-
-
-
+        redo();
 
     }
 
 }
 
+
+
+class Actions{
+    constructor(){
+        this.shoppingCartbtn = document.querySelectorAll(".put-in-cart-action span")
+        this.shoppingShare = document.querySelectorAll(".share-action span")
+        this.shoppingBuy = document.querySelectorAll(".buy-action span")
+        this.shoppingButton = document.querySelector(".shopping")
+    }
+
+    addToShoppingCart(){
+        console.log("hixxx")
+        cart.addItemToCart();
+
+    }
+}
+
+
+
 const cart = new ShoppingCart();
+const actions = new Actions();
+
+
+const shoppingCartbtn = document.querySelectorAll(".put-in-cart-action span")
+const shoppingShare = document.querySelectorAll(".share-action span")
+const shoppingBuy = document.querySelectorAll(".buy-action span")
+const shoppingButton = document.querySelector(".shopping")
+const bins = document.querySelectorAll(".bin")
+
+
 cart.setTotal();
+redo();
 
-console.log(cart.subTotal.innerText)
+for(const cartbtn of shoppingCartbtn){ // adds item to cart. 
+    cartbtn.addEventListener("click", ()=>{
+        cart.addItemToCart();
+    })
+}
 
-
-
-for(const item of cart.itemQuantity) {
+function redo(){
+for(const item of cart.itemQuantity) { //Changes the subTotal price, and the item price. 
     item.addEventListener("change", (e)=>{
-        cart.updateTotal(item.value, e);
-})
-    
-}; 
 
+        console.log(e.target);
+
+        const target = e.target;
+
+        if(target.matches("select")){
+            cart.updateTotal(item.value, e);
+        }else{
+            console.log("it doesn't")
+        }
+})
+}
+}
 
 for(const bin of cart.bin){
+
     bin.addEventListener("click", (e)=>{ // Remove an item when the bin icon is clicked 
+        console.log("here")
         cart.removeItem(e); 
     }
 )}
 
+// document.querySelector(".shopping-container");
 
-
-
-
-
-
-
-const shoppingCart = document.querySelectorAll(".put-in-cart-action span")
-const shoppingBuy = document.querySelectorAll(".buy-action span")
-const shoppingShare = document.querySelectorAll(".share-action span")
-const shoppingButton = document.querySelector(".shopping")
 
 
 shoppingButton.addEventListener("click", ()=>{
@@ -142,27 +166,24 @@ shoppingButton.addEventListener("click", ()=>{
     console.log(shoppingContainer.style.display)
     if(shoppingContainer.style.display == "none"){
         console.log("here")
-        shoppingContainer.style.display = "block";
+        shoppingContainer.style.display = "grid";
         container.style.display = "none";
     }else{
         container.style.display = "grid";
         shoppingContainer.style.display = "none";
     }
 })
-for(const cartbtn of shoppingCart){
-    cartbtn.addEventListener("click", ()=>{
-        cart.addItemToCart();
-    })
-}
 
 
-for(const buy of shoppingBuy){
-    buy.addEventListener("click", ()=>{
-        console.log("buy")
-    })
-}
-for(const share of shoppingShare){
-    share.addEventListener("click", ()=>{
-        console.log("share")
-    })
-}
+
+
+// for(const buy of shoppingBuy){
+//     buy.addEventListener("click", ()=>{
+//         console.log("buy")
+//     })
+// }
+// for(const share of shoppingShare){
+//     share.addEventListener("click", ()=>{
+//         console.log("share")
+//     })
+// }
