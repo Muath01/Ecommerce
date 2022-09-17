@@ -80,6 +80,7 @@ class ShoppingCart{
             </select>
         </div>
     </div>
+
         `
         console.log(this.priceArray)
         itemContainer.appendChild(cartItem.cloneNode(true))
