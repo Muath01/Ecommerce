@@ -45,6 +45,7 @@ class ShoppingCart{
         e.target.parentNode.parentNode.parentNode.remove();
 
         this.setTotal(); 
+        divDelete();
 
     }
 
@@ -85,7 +86,7 @@ class ShoppingCart{
         console.log(this.priceArray)
         itemContainer.appendChild(cartItem.cloneNode(true))
         this.setTotal(); 
-        redo();
+        divSelect();
 
     }
 
@@ -122,7 +123,8 @@ const bins = document.querySelectorAll(".bin")
 
 
 cart.setTotal();
-redo();
+divSelect();
+divDelete();
 
 for(const cartbtn of shoppingCartbtn){ // adds item to cart. 
     cartbtn.addEventListener("click", ()=>{
@@ -130,7 +132,7 @@ for(const cartbtn of shoppingCartbtn){ // adds item to cart.
     })
 }
 
-function redo(){
+function divSelect(){
 for(const item of cart.itemQuantity) { //Changes the subTotal price, and the item price. 
     item.addEventListener("change", (e)=>{
 
@@ -147,6 +149,7 @@ for(const item of cart.itemQuantity) { //Changes the subTotal price, and the ite
 }
 }
 
+function divDelete(){
 for(const bin of cart.bin){
 
     bin.addEventListener("click", (e)=>{ // Remove an item when the bin icon is clicked 
@@ -154,10 +157,7 @@ for(const bin of cart.bin){
         cart.removeItem(e); 
     }
 )}
-
-// document.querySelector(".shopping-container");
-
-
+}
 
 shoppingButton.addEventListener("click", ()=>{
 
