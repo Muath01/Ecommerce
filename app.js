@@ -87,7 +87,8 @@ class ShoppingCart{
         console.log(this.priceArray)
         itemContainer.appendChild(cartItem.cloneNode(true))
         this.setTotal(); 
-        divSelect();
+        divSelect(); // loops of new select item in the cart
+        divDelete(); // loops over new delete icons in the cart
 
     }
 
