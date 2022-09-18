@@ -143,6 +143,21 @@ cart.setTotal();
 divSelect();
 divDelete();
 
+for(const share of shoppingShare){
+    share.addEventListener("click", ()=>{
+
+        if(navigator.share){
+            navigator.share({
+                title:"NFT Item", 
+                url: "https://localhost/index.html"
+            }).then(()=>{
+                console.log("Thank you")
+            }).catch(console.error)
+        }
+    })
+    }
+
+
 for(const cartbtn of shoppingCartbtn){ // adds item to cart. 
     cartbtn.addEventListener("click", (e)=>{
         cart.addItemToCart(e);
