@@ -107,6 +107,18 @@ class ShoppingCart{
 
     }
 
+    shareNFT(){
+        if(navigator.share){
+            navigator.share({
+                title:"NFT Item",
+                text:"Hey Look at this new NFT site I've just found\n", 
+                url: "https://localhost/index.html"
+            }).then(()=>{
+                console.log("Thank you")
+            }).catch(console.error)
+        }
+    }
+
 }
 
 
@@ -146,14 +158,7 @@ divDelete();
 for(const share of shoppingShare){
     share.addEventListener("click", ()=>{
 
-        if(navigator.share){
-            navigator.share({
-                title:"NFT Item", 
-                url: "https://localhost/index.html"
-            }).then(()=>{
-                console.log("Thank you")
-            }).catch(console.error)
-        }
+        cart.shareNFT();
     })
     }
 
