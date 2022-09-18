@@ -108,7 +108,7 @@ class ShoppingCart{
     }
 
     shareNFT(){
-        if(navigator.share){
+        if(navigator.sharex){
             navigator.share({
                 title:"NFT Item",
                 text:"Hey Look at this new NFT site I've just found\n", 
@@ -116,6 +116,8 @@ class ShoppingCart{
             }).then(()=>{
                 console.log("Thank you")
             }).catch(console.error)
+        }else{
+            shareDialog.classList.add("is-open"); // This adds different support for browsers that don't support the navigator api. 
         }
     }
 
@@ -149,11 +151,20 @@ const shoppingShare = document.querySelectorAll(".share-action span")
 const shoppingBuy = document.querySelectorAll(".buy-action span")
 const shoppingButton = document.querySelector(".shopping")
 const bins = document.querySelectorAll(".bin")
+const shareButton = document.querySelector(".share-Button");
+const shareDialog = document.querySelector(".share-dialog");
+const closeButton = document.querySelector(".close-button");
+
 
 
 cart.setTotal();
 divSelect();
 divDelete();
+
+closeButton.addEventListener("click", ()=>{
+    console.log("her")
+    shareDialog.classList.remove("is-open")
+})
 
 for(const share of shoppingShare){
     share.addEventListener("click", ()=>{
