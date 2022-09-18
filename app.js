@@ -55,8 +55,8 @@ class ShoppingCart{
         const price = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").innerText;
         const name = e.target.parentNode.parentNode.parentNode.querySelector(".name-price p");
         const value = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").dataset.value;
+        const itemAdd = e.target.parentNode.parentNode.parentNode.querySelector(".item-added");
 
-        console.log(name)
         // console.log("v", value)
         const cartItem = document.createElement("div")
 
@@ -91,7 +91,15 @@ class ShoppingCart{
     </div>
 
         `
+        
+        
         console.log(this.priceArray)
+        setTimeout(() => {
+            itemAdd.classList.toggle("item-added-add")
+       }, 1000);
+       itemAdd.classList.toggle("item-added-add")
+       console.log(itemAdd)
+       
         itemContainer.appendChild(cartItem.cloneNode(true))
         this.setTotal(); 
         divSelect(); // loops of new select item in the cart
