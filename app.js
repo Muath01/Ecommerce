@@ -50,12 +50,14 @@ class ShoppingCart{
     }
 
     addItemToCart(e){
-        console.log(e.target.parentNode.parentNode.parentNode.querySelector(".number-price"))
+        // console.log(e.target.parentNode.parentNode.parentNode.querySelector(".number-price"))
         const imgSrc = e.target.parentNode.parentNode.parentNode.querySelector("img").src;
         const price = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").innerText;
-        const name = e.target.parentNode.parentNode.parentNode.querySelector("#name-price p");
+        const name = e.target.parentNode.parentNode.parentNode.querySelector(".name-price p");
+        const value = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").dataset.value;
 
         console.log(name)
+        // console.log("v", value)
         const cartItem = document.createElement("div")
 
         const itemContainer = document.querySelector(".item-container");
@@ -69,7 +71,7 @@ class ShoppingCart{
         
         <div id="item-actions">
             <span id="item-text">
-            Price: £<option class="item-price" value="7.99">${price}</option>
+            Price: £<option class="item-price" value=${value}>${price}</option>
             </span>
 
         <div class="bin-select">
