@@ -130,8 +130,9 @@ body {
 
 .container .item .actions .item-added-add {
   position: absolute;
-  left: 40%;
+  left: 45%;
   color: red;
+  font-weight: bold;
   bottom: 45%;
   display: block;
 }
