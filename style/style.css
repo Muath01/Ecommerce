@@ -159,11 +159,21 @@ body {
 
 .shopping-container .shopping-total button {
   width: 40%;
-  padding: 7px 5px;
+  padding: 20px 5px;
   border-radius: 20px;
   background-color: #FBA525;
   border: none;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
 }
 
 .shopping-container .item-container {
@@ -173,8 +183,12 @@ body {
       grid-template-columns: repeat(1, 100%);
   grid-gap: 1.5em;
   position: relative;
-  bottom: 6em;
   height: 80%;
+}
+
+.shopping-container .item-container .cart-item {
+  border-bottom: 1px solid grey;
+  padding-bottom: 5px;
 }
 
 .shopping-container .item-container .cart-item #item-actions #item-text {
@@ -222,8 +236,6 @@ body {
 
 .shopping-container .item-container .cart-item .cart-img-container {
   width: 100%;
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
 }
 
 .shopping-container .item-container .cart-item .cart-product-img {

@@ -175,6 +175,7 @@ shoppingButton.addEventListener("click", ()=>{
 
     console.log(shoppingContainer.style.display)
     if(shoppingContainer.style.display == "none"){
+        console.log("here")
         shoppingContainer.style.display = "grid";
         container.style.display = "none";
     }else{
