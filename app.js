@@ -49,7 +49,8 @@ class ShoppingCart{
 
     }
 
-    addItemToCart(){
+    addItemToCart(e){
+        console.log(e.target.parentNode.parentNode.parentNode.querySelector("img").src)
         const cartItem = document.createElement("div")
 
         const itemContainer = document.querySelector(".item-container");
@@ -58,7 +59,7 @@ class ShoppingCart{
 
         cartItem.innerHTML= `
             <div class="cart-img-container">
-                <img src="../img/yellow-watch.jpg" class="cart-product-img">
+                <img src=${e.target.parentNode.parentNode.parentNode.querySelector("img").src} class="cart-product-img">
             </div>
         
         <div id="item-actions">
@@ -127,8 +128,8 @@ divSelect();
 divDelete();
 
 for(const cartbtn of shoppingCartbtn){ // adds item to cart. 
-    cartbtn.addEventListener("click", ()=>{
-        cart.addItemToCart();
+    cartbtn.addEventListener("click", (e)=>{
+        cart.addItemToCart(e);
     })
 }
 

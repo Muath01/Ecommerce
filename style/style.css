@@ -8,7 +8,8 @@ body {
 }
 
 #nav {
-  background-color: lightblue;
+  background-color: white;
+  border-bottom: 1px solid black;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,7 +63,7 @@ body {
   width: 90%;
   height: 55em;
   margin: auto;
-  margin-top: 10em;
+  margin-top: 1em;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (auto)[3];
@@ -73,10 +74,11 @@ body {
 }
 
 .container .item {
-  border: 1px solid black;
+  border-radius: 15px;
   height: 100%;
   width: 100%;
-  background-color: skyblue;
+  -webkit-box-shadow: 2px 2px 2px lightblue;
+          box-shadow: 2px 2px 2px lightblue;
 }
 
 .container .item #name-price {
@@ -93,11 +95,15 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-shadow: 2px 2px 2px lightblue;
+          box-shadow: 2px 2px 2px lightblue;
+  border-radius: 15px;
 }
 
 .container .item .product-img {
-  width: 100%;
+  width: 450px;
   height: auto;
+  border-radius: 10px;
 }
 
 .container .item .actions {
