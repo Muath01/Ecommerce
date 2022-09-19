@@ -64,22 +64,23 @@ body{
         border-radius: 15px;
         height: 100%;
         width: 100%;
+        overflow: hidden;
         // background-color: skyblue;
         // border: 2px solid black;
         box-shadow: 2px 2px 2px lightblue;
 
+
         #name-price{
             position: relative;
         }
-
         .img-container{
             display: flex;
             width: 100%;
             height: 320px;
             justify-content: center;
-            // border-bottom: 13px solid black;
             box-shadow: 2px 2px 2px lightblue;
             border-radius: 15px;
+            border: 3px solid black;
 
         }
         .product-img{
@@ -87,8 +88,8 @@ body{
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+            
         }
-
         .actions{
             width: 100%;
             height: 16%;
@@ -238,6 +239,50 @@ body{
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+
+// But-now-container
+
+.buy-now-container{
+    background-color: white;
+    width: 30em;
+    height: 20em;
+    margin: auto;
+    margin-top: 8em;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(3, auto);
+    overflow: scroll;
+
+    .buy-now-inner-container{
+        // border: 2px solid black;
+        width: 100%;
+        border-radius: 5px;
+        margin-left: 0.3em;
+        margin-top: 0.2em;
+    }
+
+    #buy-now-img-container{
+        width: 5em;
+        height: 5em;
+    }
+    #buy-now-img{
+        width: 107%;
+        height: 100%;
+        position: relative;
+        border-radius: 5px;
+
+    }
+    .buy-name-price{
+        font-size: 6.5px;
+        font-weight: bolder;
+    }
+    
+
+}
+
 
 // Shopping container
 

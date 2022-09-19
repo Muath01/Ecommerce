@@ -7,6 +7,7 @@ class ShoppingCart{
         this.subTotal = document.getElementById("total-price");
         this.itemPrice = document.getElementsByClassName("item-price");
         this.test = document.getElementById("subtotal")
+        this.buyNow = document.getElementById("buy-now")
         this.priceArray = [];// will hold the prices of each item. 
         this.total;
         this.cartItem = 0;
@@ -51,11 +52,11 @@ class ShoppingCart{
 
     addItemToCart(e){
         // console.log(e.target.parentNode.parentNode.parentNode.querySelector(".number-price"))
-        const imgSrc = e.target.parentNode.parentNode.parentNode.querySelector("img").src;
-        const price = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").innerText;
-        const name = e.target.parentNode.parentNode.parentNode.querySelector(".name-price p");
-        const value = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").dataset.value;
-        const itemAdd = e.target.parentNode.parentNode.parentNode.querySelector(".item-added");
+        this.imgSrc = e.target.parentNode.parentNode.parentNode.querySelector("img").src;
+        this.price = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").innerText;
+        this.name = e.target.parentNode.parentNode.parentNode.querySelector(".name-price p");
+        this.value = e.target.parentNode.parentNode.parentNode.querySelector(".number-price").dataset.value;
+        this.itemAdd = e.target.parentNode.parentNode.parentNode.querySelector(".item-added");
 
         // console.log("v", value)
         const cartItem = document.createElement("div")
@@ -66,12 +67,12 @@ class ShoppingCart{
 
         cartItem.innerHTML= `
             <div class="cart-img-container">
-                <img src=${imgSrc} class="cart-product-img">
+                <img src=${this.imgSrc} class="cart-product-img">
             </div>
         
         <div id="item-actions">
             <span id="item-text">
-            Price: £<option class="item-price" value=${value}>${price}</option>
+            Price: £<option class="item-price" value=${this.value}>${this.price}</option>
             </span>
 
         <div class="bin-select">
@@ -95,10 +96,9 @@ class ShoppingCart{
         
         console.log(this.priceArray)
         setTimeout(() => {
-            itemAdd.classList.toggle("item-added-add")
+            this.itemAdd.classList.toggle("item-added-add")
        }, 1000);
-       itemAdd.classList.toggle("item-added-add")
-       console.log(itemAdd)
+       this.itemAdd.classList.toggle("item-added-add")
        
         itemContainer.appendChild(cartItem.cloneNode(true))
         this.setTotal(); 
@@ -108,7 +108,7 @@ class ShoppingCart{
     }
 
     shareNFT(){
-        if(navigator.sharex){
+        if(navigator.share){
             navigator.share({
                 title:"NFT Item",
                 text:"Hey Look at this new NFT site I've just found\n", 
@@ -120,9 +120,54 @@ class ShoppingCart{
             shareDialog.classList.add("is-open"); // This adds different support for browsers that don't support the navigator api. 
         }
     }
+    buyNowDiv(){
+
+        const buyDiv = document.createElement("div");
+        const buyDivContainer = document.querySelector(".buy-now-container");
+
+
+        buyDiv.innerHTML = `
+            <div class="buy-now-inner-container">
+
+            <div id="buy-now-img-container">
+            <img src="${this.imgSrc}" id="buy-now-img">
+            </div>
+            <div class="buy-name-price">
+            <p>
+                Product Name: ${this.name}
+            </p>
+            <span>
+                Price: £<span class="buy-number-price" data-value=${this.value}>${this.price}</span>
+            </span>
+            </div>
+            </div>
+        `
+
+        buyDivContainer.style.display = "grid"
+        buyDivContainer.appendChild(buyDiv)
+
+    }
 
 }
 
+/*
+        <div class="buy-now-container" style="display: none;">
+          <div class="buy-now-inner-container">
+
+            <div id="buy-now-img-container">
+              <img src="./img/ape.png" id="buy-now-img">
+            </div>
+            <div class="buy-name-price">
+              <p>
+                Product Name: Bored Ape
+              </p>
+              <span>
+                Price: £<span class="buy-number-price" data-value="7.99">7.99</span>
+              </span>
+            </div>
+          </div>
+          </div>
+*/
 
 
 class Actions{
@@ -157,9 +202,17 @@ const closeButton = document.querySelector(".close-button");
 
 
 
+
 cart.setTotal();
 divSelect();
 divDelete();
+
+
+cart.buyNow.addEventListener("click", ()=>{
+    cart.buyNowDiv();
+})
+
+
 
 closeButton.addEventListener("click", ()=>{
     console.log("her")
