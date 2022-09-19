@@ -8,6 +8,7 @@ class ShoppingCart{
         this.itemPrice = document.getElementsByClassName("item-price");
         this.test = document.getElementById("subtotal")
         this.buyNow = document.getElementById("buy-now")
+        this.testContainer = document.querySelectorAll(".item-container")
         this.priceArray = [];// will hold the prices of each item. 
         this.total;
         this.cartItem = 0;
@@ -94,7 +95,6 @@ class ShoppingCart{
         `
         
         
-        console.log(this.priceArray)
         setTimeout(() => {
             this.itemAdd.classList.toggle("item-added-add")
        }, 1000);
@@ -114,7 +114,6 @@ class ShoppingCart{
                 text:"Hey Look at this new NFT site I've just found\n", 
                 url: "https://localhost/index.html"
             }).then(()=>{
-                console.log("Thank you")
             }).catch(console.error)
         }else{
             shareDialog.classList.add("is-open"); // This adds different support for browsers that don't support the navigator api. 
@@ -124,7 +123,7 @@ class ShoppingCart{
 
         const buyDiv = document.createElement("div");
         const buyDivContainer = document.querySelector(".buy-now-container");
-
+        
 
         buyDiv.innerHTML = `
             <div class="buy-now-inner-container">
@@ -143,10 +142,31 @@ class ShoppingCart{
             </div>
         `
 
-        buyDivContainer.style.display = "grid"
-        buyDivContainer.appendChild(buyDiv)
+        for (let i = 0; i < this.testContainer[0].children.length; i++){
+        // for(const container of this.testContainer[0].children){
+            const buyImgSrc =  this.testContainer[0].children[i].children[0].children[0].src;
+            const price = this.testContainer[0].querySelector(".item-container .cart-item #item-actions #item-text .item-price").innerText;
+            const value = this.testContainer[0].querySelector(".item-container .cart-item #item-actions #item-text .item-price").value;
+            buyDiv.innerHTML = `
+            <div class="buy-now-inner-container">
+            
+            <div id="buy-now-img-container">
+            <img src="${buyImgSrc}" id="buy-now-img">
+            </div>
+            <div class="buy-name-price">
+            <span>
+            Price: £<span class="buy-number-price" data-value=${value}>${price}</span>
+            </span>
+            </div>
+            </div>
+            `
+            buyDivContainer.style.display = "grid"
+            buyDivContainer.appendChild(buyDiv.cloneNode(true))
+            // console.log("here")
+        }
 
-    }
+
+   }
 
 }
 

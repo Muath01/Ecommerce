@@ -288,6 +288,11 @@ header {
   -ms-grid-rows: (auto)[3];
       grid-template-rows: repeat(3, auto);
   overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 
 .buy-now-container .buy-now-inner-container {
@@ -312,6 +317,22 @@ header {
 .buy-now-container .buy-name-price {
   font-size: 6.5px;
   font-weight: bolder;
+}
+
+.buy-now-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.buy-now-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.buy-now-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.buy-now-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .shopping-container {
